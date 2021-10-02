@@ -1,26 +1,10 @@
 package Model;
 
 public class Calculadora {
-    protected Float valor1;
-    protected Float valor2;
+    private Float valor1;
+    private Float valor2;
 
     public Calculadora() {
-    }
-
-    public Float adicao() {
-        return this.getValor1() + this.getValor2();
-    }
-
-    public Float subtracao() {
-        return this.getValor1() - this.getValor2();
-    }
-
-    public Float divisao() {
-        return this.getValor1() / this.getValor2();
-    }
-
-    public Float multiplicacao() {
-        return this.getValor1() * this.getValor2();
     }
 
     public Float getValor1() {
