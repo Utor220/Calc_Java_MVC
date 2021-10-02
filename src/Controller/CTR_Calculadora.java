@@ -3,7 +3,8 @@ package Controller;
 import Model.Calculadora;
 
 public class CTR_Calculadora {
-    Calculadora Calculadora = new Calculadora();
+
+    Calculadora Calculadora = new Calculadora(); //instancia da classe Calculadora
 
     public Float adicao() {
         return Calculadora.getValor1() + Calculadora.getValor2();
