@@ -1,26 +1,32 @@
 package Model;
 
 public class Calculadora {
-    private Double valor1;
-    private Double valor2;
+    private Double n1;
+    private Double n2;
+    private Double resultado;
 
-    public Calculadora() {
+
+    public Double getN1() {
+        return n1;
     }
 
-    public Double getValor1() {
-        return valor1;
+    public Double getN2() {
+        return n2;
     }
 
-    public Double getValor2() {
-        return valor2;
+    public Double getResultado() {
+        return resultado;
     }
 
-    public void setValor1(Double valor1) {
-        this.valor1 = valor1;
+    public void setN1(Double n1) {
+        this.n1 = n1;
     }
 
-    public void setValor2(Double valor2) {
-        this.valor2 = valor2;
+    public void setN2(Double n2) {
+        this.n2 = n2;
     }
 
+    public void setResultado(Double resultado) {
+        this.resultado = resultado;
+    }
 }
