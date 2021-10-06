@@ -29,4 +29,9 @@ public class Calculadora {
     public void setResultado(Double resultado) {
         this.resultado = resultado;
     }
+    
+    public void ac (){
+        setN1(0.0);
+        setN2(0.0);
+    }
 }

@@ -4,46 +4,12 @@ import Model.Calculadora;
 import Model.Extra;
 
 import java.text.ParseException;
+import java.util.*;
 
 public class CTR_Calculadora {
 
     Calculadora Calculadora = new Calculadora(); //instância da classe Calculadora
     Extra Extra = new Extra(); //instância da classe Extra
-   /* public Double adicao(Calculadora Calculadora) {
-        return Calculadora.getValor1() + Calculadora.getValor2();
-    }
-
-    public Double subtracao(Calculadora Calculadora) {
-        return Calculadora.getValor1() - Calculadora.getValor2();
-    }
-
-    public Double divisao(Calculadora Calculadora) {
-        return Calculadora.getValor1() / Calculadora.getValor2();
-    }
-
-    public Double multiplicacao(Calculadora Calculadora) {
-        return Calculadora.getValor1() * Calculadora.getValor2();
-    }
-
-    public Double log(Calculadora Calculadora){
-
-        return Math.log(Calculadora.getValor1()) / Math.log(Calculadora.getValor2());
-    }
-
-    public Double sen(Calculadora Calculadora){
-        Extra.extra = Math.toRadians(Calculadora.getValor1());
-        return Math.sin(Extra.extra);
-    }
-
-    public Double cos(Calculadora Calculadora){
-        Extra.extra = Math.toRadians(Calculadora.getValor1());
-        return Math.cos(Extra.extra);
-    }
-
-    public Double tg(Calculadora Calculadora){
-        Extra.extra = Math.toRadians(Calculadora.getValor1());
-        return Math.tan(Extra.extra);
-    }*/
 
     public void adicao (Calculadora Calculadora){
         Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
@@ -60,12 +26,6 @@ public class CTR_Calculadora {
     public void multiplicacao (Calculadora Calculadora){
         Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
      }
-
-    public void ac (Calculadora Calculadora){
-        Calculadora.setN1(0.0);
-        Calculadora.setN2(0.0);
-        Extra.str_num = "";
-    }
 
     public void sin (Calculadora Calculadora){
         Calculadora.setN1(Double.parseDouble(Extra.str_num));
