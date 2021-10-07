@@ -4,6 +4,8 @@ public class Calculadora {
     private Double n1;
     private Double n2;
     private Double resultado;
+    private String respostafinal;
+    private String operador;
 
 
     public Double getN1() {
@@ -18,6 +20,14 @@ public class Calculadora {
         return resultado;
     }
 
+    public String getRespostafinal() {
+        return respostafinal;
+    }
+
+    public String getOperador() {
+        return operador;
+    }
+    
     public void setN1(Double n1) {
         this.n1 = n1;
     }
@@ -28,6 +38,14 @@ public class Calculadora {
 
     public void setResultado(Double resultado) {
         this.resultado = resultado;
+    }
+
+    public void setRespostafinal(String respostafinal) {
+        this.respostafinal = respostafinal;
+    } 
+
+    public void setOperador(String operador) {
+        this.operador = operador;
     }
     
     public void ac (){

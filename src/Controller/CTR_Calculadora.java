@@ -12,24 +12,29 @@ public class CTR_Calculadora {
     Extra Extra = new Extra(); //instância da classe Extra
 
     public void adicao (Calculadora Calculadora){
-        Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
+        
+        Calculadora.setResultado(Calculadora.getN1() + Calculadora.getN2());
+        Calculadora.setRespostafinal(String.format("%.2f",Calculadora.getResultado()));
     }
 
     public void subtracao (Calculadora Calculadora){
-        Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
+        Calculadora.setResultado(Calculadora.getN1() - Calculadora.getN2());
+        Calculadora.setRespostafinal(String.format("%.2f",Calculadora.getResultado()));
     }
 
     public void divisao (Calculadora Calculadora){
-        Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
+        Calculadora.setResultado(Calculadora.getN1() / Calculadora.getN2());
+        Calculadora.setRespostafinal(String.format("%.2f",Calculadora.getResultado()));
     }
 
     public void multiplicacao (Calculadora Calculadora){
-        Extra.str_num = Double.toString(Calculadora.getN1() + Calculadora.getN2());
+        Calculadora.setResultado(Calculadora.getN1() * Calculadora.getN2());
+        Calculadora.setRespostafinal(String.format("%.2f",Calculadora.getResultado()));
      }
 
     public void sin (Calculadora Calculadora){
-        Calculadora.setN1(Double.parseDouble(Extra.str_num));
-        Calculadora.setResultado(Math.sin(Calculadora.getN1()));
+        //Calculadora.setResultado(Math.sin(Double.parseDouble(Extra.str_num))); ta dando zika
+        
     }
 
     public void cos (Calculadora Calculadora){
@@ -42,22 +47,6 @@ public class CTR_Calculadora {
         Calculadora.setResultado(Math.tan(Calculadora.getN1()));
     }
 
-    public void m_add (Calculadora Calculadora){
-        Calculadora.setResultado(Double.parseDouble(Extra.str_num)+ Calculadora.getN1());
-    }
-
-    public void m_min (Calculadora Calculadora){
-        Extra.memoria = Extra.str_num;
-    }
-
-    public void mr (Calculadora Calculadora){
-        Calculadora.getResultado();
-    }
-
-    public void mc (Calculadora Calculadora){
-        Calculadora.setResultado(0.0);
-    }
-
     public Extra igual (Calculadora Calculadora){
         return Extra;
     }
@@ -66,8 +55,8 @@ public class CTR_Calculadora {
         Extra.str_num = Double.toString(Math.PI);
     }
 
-    public void euler (){
-        Extra.str_num = Double.toString(Math.E);
+    public Double euler (){
+        return Math.E;
     }
 
     public void exp (Calculadora Calculadora){
