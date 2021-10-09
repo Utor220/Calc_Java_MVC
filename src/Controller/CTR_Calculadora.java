@@ -3,9 +3,6 @@ package Controller;
 import Model.Calculadora;
 import Model.Extra;
 
-import java.text.ParseException;
-import java.util.*;
-
 public class CTR_Calculadora {
 
     Calculadora Calculadora = new Calculadora(); //instância da classe Calculadora
@@ -33,7 +30,7 @@ public class CTR_Calculadora {
      }
 
     public void sin (Calculadora Calculadora){
-        //Calculadora.setResultado(Math.sin(Double.parseDouble(Extra.str_num))); ta dando zika
+        Calculadora.setResultado(Math.sin(Double.parseDouble(Extra.str_num)));
         
     }
 
@@ -47,12 +44,8 @@ public class CTR_Calculadora {
         Calculadora.setResultado(Math.tan(Calculadora.getN1()));
     }
 
-    public Extra igual (Calculadora Calculadora){
-        return Extra;
-    }
-
-    public void PI (){
-        Extra.str_num = Double.toString(Math.PI);
+    public Double PI (){
+        return Math.PI;
     }
 
     public Double euler (){
@@ -61,10 +54,10 @@ public class CTR_Calculadora {
 
     public void exp (Calculadora Calculadora){
 
-        Math.exp(Calculadora.getN1());
+        Calculadora.setRespostafinal(String.format("%.2f",Math.pow(Calculadora.getN1(), Calculadora.getN2())));
     }
 
     public void log (Calculadora Calculadora){
-        Math.log10(Calculadora.getN1());
+        Calculadora.setRespostafinal(String.format("%.2f",Math.log10(Calculadora.getN1())));
     }
 }
