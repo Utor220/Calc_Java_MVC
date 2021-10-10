@@ -6,23 +6,34 @@ package View;
 
 import Model.Calculadora;
 import Controller.CTR_Calculadora;
-import Model.Extra;
-import java.util.HashSet;
 /**
  *
  * @author utor_
  */
 public class FRM_Calculadora extends javax.swing.JFrame {
-        Extra Extra;
         CTR_Calculadora CTR_Calculadora;
         Calculadora Calculadora;
-        MessageBox Msgbx;
+        //MessageBox Msgbx;
     public FRM_Calculadora() {
         initComponents();
-        Extra = new Extra();
         Calculadora = new Calculadora();
         CTR_Calculadora = new CTR_Calculadora();
-        Msgbx = new MessageBox();
+        Calculadora.setMemoria("0");
+        //Msgbx = new MessageBox(); //MessageBox para teste;
+        
+        //Caixa de texto de descrição de alguns botões mais complexos;
+        TeclaLog.setToolTipText("Calcula o Log10 de um número. Digite um número e selecione este botão para calculá-lo.");
+        TeclaEul.setToolTipText("Insere o número de Euler.");
+        TeclaPi.setToolTipText("Insere o número de PI");
+        TeclaEXP.setToolTipText("Calcula o exponencial de um número");
+        TeclaMr.setToolTipText("Copia o número na memória para o campo principal");
+        TeclaMmais.setToolTipText("Adiciona o número do campo principal ao número na memória");
+        TeclaMmenos.setToolTipText("Subtrai o número do campo principal pelo número na memória");
+        TeclaMc.setToolTipText("Limpa a memória");
+        TeclaSen.setToolTipText("Calcula o seno de um número. Digite um número e selecione este botão para calculá-lo.");
+        TeclaCos.setToolTipText("Calcula o cosseno de um número. Digite um número e selecione este botão para calculá-lo.");
+        TeclaTan.setToolTipText("Calcula tangente de um número. Digite um número e selecione este botão para calculá-la.");
+        TeclaAC.setToolTipText("Limpa todos os campos, inclusive a memória");
     }
 
     /**
@@ -65,6 +76,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
         Num7 = new javax.swing.JButton();
         memLabel = new javax.swing.JLabel();
         txbMem = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -116,6 +128,11 @@ public class FRM_Calculadora extends javax.swing.JFrame {
         Num1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Num1ActionPerformed(evt);
+            }
+        });
+        Num1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Num1KeyPressed(evt);
             }
         });
 
@@ -274,6 +291,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
             }
         });
 
+        txbCalc.setEditable(false);
         txbCalc.setName(""); // NOI18N
         txbCalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +318,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
 
         txbMem.setEditable(false);
 
+        jLabel1.setText("Dica: Passe com o cursor em cima de alguns botões para ver suas funções.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -307,12 +327,6 @@ public class FRM_Calculadora extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txbCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(memLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txbMem, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -378,7 +392,17 @@ public class FRM_Calculadora extends javax.swing.JFrame {
                                     .addComponent(Num3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TeclaPonto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(Num1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(TeclaIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(TeclaIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txbCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(memLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txbMem, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -389,6 +413,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
                     .addComponent(txbCalc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(memLabel)
                     .addComponent(txbMem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -436,8 +462,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
                             .addComponent(Num0)
                             .addComponent(TeclaPonto))))
                 .addGap(18, 18, 18)
-                .addComponent(TeclaIgual, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+                .addComponent(TeclaIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         txbCalc.getAccessibleContext().setAccessibleName("txbCalc");
@@ -450,53 +476,53 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     
     
     private void Num8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num8ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num8.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num8.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num8ActionPerformed
 
     private void Num9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num9ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num9.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num9.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num9ActionPerformed
 
     private void Num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num4ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num4.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num4.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num4ActionPerformed
 
     private void Num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num5ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num5.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num5.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num5ActionPerformed
 
     private void Num6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num6ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num6.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num6.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num6ActionPerformed
 
     private void Num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num1ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num1.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num1.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num1ActionPerformed
 
     private void Num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num2ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num2.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num2.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num2ActionPerformed
 
     private void Num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num3ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num3.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num3.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num3ActionPerformed
 
     private void Num0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num0ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num0.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num0.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num0ActionPerformed
 
     private void TeclaPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaPontoActionPerformed
-        Extra.str_num = txbCalc.getText() + TeclaPonto.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + TeclaPonto.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_TeclaPontoActionPerformed
 
     private void TeclaMaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TeclaMaisMouseClicked
@@ -511,10 +537,10 @@ public class FRM_Calculadora extends javax.swing.JFrame {
 
     private void TeclaIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaIgualActionPerformed
         Calculadora.setN2(Double.parseDouble(txbCalc.getText()));
-        switch (Calculadora.getOperador()){
+        switch (Calculadora.getOperador()){ //switch-case para identificação dos operadores e efetuar a operação certa paracada operador;
             case "+":
                 CTR_Calculadora.adicao(Calculadora);
-                txbCalc.setText(Calculadora.getRespostafinal());            
+                txbCalc.setText(Calculadora.getRespostafinal());
                 break;
             case "-":
                 CTR_Calculadora.subtracao(Calculadora);
@@ -531,6 +557,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
             case "exp":
                 CTR_Calculadora.exp(Calculadora);
                 txbCalc.setText(Calculadora.getRespostafinal());
+                Calculadora.setStr_num(txbCalc.getText());
         }
     }//GEN-LAST:event_TeclaIgualActionPerformed
 
@@ -549,22 +576,27 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaMcActionPerformed
 
     private void TeclaMrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMrActionPerformed
-        txbCalc.setText(txbMem.getText());
+        //txbCalc.setText(txbMem.getText()); //Funciona?? +/-
+        txbCalc.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMrActionPerformed
 
     private void TeclaMmaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMmaisActionPerformed
-
+        Calculadora.setStr_num(txbCalc.getText());
+        CTR_Calculadora.Mplus(Calculadora);
+        txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMmaisActionPerformed
 
     private void TeclaSenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaSenActionPerformed
        CTR_Calculadora.sin(Calculadora);
        txbCalc.setText("");
        txbCalc.setText(txbCalc.getText() + Calculadora.getResultado());
-       Msgbx.infoBox(Extra.str_num,"teste");
+       //Msgbx.infoBox(Calculadora.getStr_num(),"teste");
     }//GEN-LAST:event_TeclaSenActionPerformed
 
     private void TeclaMmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMmenosActionPerformed
-        // TODO add your handling code here:
+        Calculadora.setStr_num(txbCalc.getText());
+        CTR_Calculadora.Mminus(Calculadora);
+        txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMmenosActionPerformed
 
     private void TeclaCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaCosActionPerformed
@@ -577,8 +609,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
 
     private void TeclaACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaACActionPerformed
         Calculadora.ac();
-        Extra.str_num = "";
-        txbCalc.setText(Extra.str_num);
+        txbCalc.setText(Calculadora.getStr_num());
+        txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaACActionPerformed
 
     private void TeclaTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaTanActionPerformed
@@ -589,6 +621,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
         Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
         CTR_Calculadora.log(Calculadora);
         txbCalc.setText(Calculadora.getRespostafinal());
+        Calculadora.setStr_num(txbCalc.getText());
     }//GEN-LAST:event_TeclaLogActionPerformed
 
     private void TeclaEXPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaEXPActionPerformed
@@ -598,8 +631,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaEXPActionPerformed
 
     private void TeclaPiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaPiActionPerformed
-        Extra.str_num = CTR_Calculadora.PI().toString();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(CTR_Calculadora.PI().toString());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_TeclaPiActionPerformed
 
     private void txbCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbCalcActionPerformed
@@ -607,13 +640,13 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_txbCalcActionPerformed
 
     private void TeclaEulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaEulActionPerformed
-        Extra.str_num = CTR_Calculadora.euler().toString();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(CTR_Calculadora.euler().toString());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_TeclaEulActionPerformed
 
     private void Num7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num7ActionPerformed
-        Extra.str_num = txbCalc.getText() + Num7.getText();
-        txbCalc.setText(Extra.str_num);
+        Calculadora.setStr_num(txbCalc.getText() + Num7.getText());
+        txbCalc.setText(Calculadora.getStr_num());
     }//GEN-LAST:event_Num7ActionPerformed
 
     private void TeclaMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMultiplicacaoActionPerformed
@@ -631,6 +664,10 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
 
     }//GEN-LAST:event_formComponentShown
+
+    private void Num1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Num1KeyPressed
+
+    }//GEN-LAST:event_Num1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -663,6 +700,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FRM_Calculadora().setVisible(true);
+                
             }
         });
     }
@@ -696,6 +734,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton TeclaSen;
     private javax.swing.JButton TeclaSubtracao;
     private javax.swing.JButton TeclaTan;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel memLabel;
     private javax.swing.JTextField txbCalc;
     private javax.swing.JTextField txbMem;
