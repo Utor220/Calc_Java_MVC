@@ -32,18 +32,21 @@ public class CTR_Calculadora {
      }
 
     public void sin (Calculadora Calculadora){
-        Calculadora.setResultado(Math.sin(Double.parseDouble(Calculadora.getStr_num())));
-        
+        //Calculadora.setRespostafinal(df.format(Math.sin(Calculadora.getN1()));
+        Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
+        Calculadora.setRespostafinal(df.format(Math.sin(Calculadora.getResultado())));
     }
 
     public void cos (Calculadora Calculadora){
-        Calculadora.setN1(Double.parseDouble(Calculadora.getStr_num()));
-        Calculadora.setResultado(Math.cos(Calculadora.getN1()));
+        //Calculadora.setRespostafinal(df.format(Math.cos(Calculadora.getN1()));
+        Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
+        Calculadora.setRespostafinal(df.format(Math.cos(Calculadora.getResultado())));
     }
 
     public void tan (Calculadora Calculadora){
-        Calculadora.setN1(Double.parseDouble(Calculadora.getStr_num()));
-        Calculadora.setResultado(Math.tan(Calculadora.getN1()));
+        //Calculadora.setRespostafinal(df.format(Math.tan(Calculadora.getN1()));
+        Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
+        Calculadora.setRespostafinal(df.format(Math.tan(Calculadora.getResultado())));
     }
 
     public Double PI (){

@@ -463,7 +463,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
                             .addComponent(TeclaPonto))))
                 .addGap(18, 18, 18)
                 .addComponent(TeclaIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txbCalc.getAccessibleContext().setAccessibleName("txbCalc");
@@ -588,21 +588,24 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaMmaisActionPerformed
 
     private void TeclaSenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaSenActionPerformed
-       CTR_Calculadora.sin(Calculadora);
-       txbCalc.setText("");
-       txbCalc.setText(txbCalc.getText() + Calculadora.getResultado());
-       //Msgbx.infoBox(Calculadora.getStr_num(),"teste");
+        Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
+        CTR_Calculadora.sin(Calculadora);
+        txbCalc.setText(Calculadora.getRespostafinal());
+        Calculadora.setStr_num(txbCalc.getText());
     }//GEN-LAST:event_TeclaSenActionPerformed
 
     private void TeclaMmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMmenosActionPerformed
         Calculadora.setStr_num(txbCalc.getText());
-        CTR_Calculadora.Mminus(Calculadora);
         CTR_Calculadora.Conversor(Calculadora);
+        CTR_Calculadora.Mminus(Calculadora);
         txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMmenosActionPerformed
 
     private void TeclaCosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaCosActionPerformed
-        // TODO add your handling code here:
+        Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
+        CTR_Calculadora.cos(Calculadora);
+        txbCalc.setText(Calculadora.getRespostafinal());
+        Calculadora.setStr_num(txbCalc.getText());
     }//GEN-LAST:event_TeclaCosActionPerformed
 
     private void TeclaACMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TeclaACMouseClicked
@@ -616,7 +619,10 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaACActionPerformed
 
     private void TeclaTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaTanActionPerformed
-        // TODO add your handling code here:
+        Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
+        CTR_Calculadora.tan(Calculadora);
+        txbCalc.setText(Calculadora.getRespostafinal());
+        Calculadora.setStr_num(txbCalc.getText());
     }//GEN-LAST:event_TeclaTanActionPerformed
 
     private void TeclaLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaLogActionPerformed
