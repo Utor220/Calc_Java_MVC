@@ -4,12 +4,12 @@ public class Calculadora {
     private Double n1;
     private Double n2;
     private Double resultado;
+    private Double n1con;
+    private Double n2con;
     private String memoria;
     private String respostafinal;
     private String operador;
     private String str_num;
-    private Double n1con;
-    private Double n2con;
 
 
     public Double getN1() {
@@ -87,7 +87,7 @@ public class Calculadora {
     public void ac (){
         setN1(0.0);
         setN2(0.0);
-        setMemoria("");
-        setStr_num("");
+        setMemoria("0");
+        setStr_num("0");
     }
 }

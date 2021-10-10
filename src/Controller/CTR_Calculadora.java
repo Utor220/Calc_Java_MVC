@@ -64,13 +64,11 @@ public class CTR_Calculadora {
     }
     
     public void Mplus(Calculadora Calculadora){
-        Conversor(Calculadora);
         Calculadora.setResultado(Calculadora.getN2con() + Calculadora.getN1con());
         Calculadora.setMemoria(df.format(Calculadora.getResultado()));
     }
     
     public void Mminus(Calculadora Calculadora){
-        Conversor(Calculadora);
         Calculadora.setResultado(Calculadora.getN2con() - Calculadora.getN1con());
         Calculadora.setMemoria(df.format(Calculadora.getResultado()));
     }
@@ -79,7 +77,7 @@ public class CTR_Calculadora {
         Calculadora.setStr_num(Calculadora.getMemoria());
     }
     
-    private void Conversor(Calculadora Calculadora){ //método para converter as strings de memória e num pq não consegui pensar em outra coisa. Mas como dizem: "Se funciona, pra que mexer?";
+    public void Conversor(Calculadora Calculadora){ //método para converter as strings de memória e num pq não consegui pensar em outra coisa. Mas como dizem: "Se funciona, pra que mexer?";
         Calculadora.setN1con(Double.parseDouble(Calculadora.getStr_num()));
         Calculadora.setN2con(Double.parseDouble(Calculadora.getMemoria()));
     }
