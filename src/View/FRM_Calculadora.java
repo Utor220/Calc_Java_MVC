@@ -572,16 +572,17 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaSubtracaoActionPerformed
 
     private void TeclaMcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMcActionPerformed
+        Calculadora.setMemoria("0");
         txbMem.setText("");
     }//GEN-LAST:event_TeclaMcActionPerformed
 
     private void TeclaMrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMrActionPerformed
-        //txbCalc.setText(txbMem.getText()); //Funciona?? +/-
         txbCalc.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMrActionPerformed
 
     private void TeclaMmaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMmaisActionPerformed
         Calculadora.setStr_num(txbCalc.getText());
+        CTR_Calculadora.Conversor(Calculadora);
         CTR_Calculadora.Mplus(Calculadora);
         txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMmaisActionPerformed
@@ -596,6 +597,7 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     private void TeclaMmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaMmenosActionPerformed
         Calculadora.setStr_num(txbCalc.getText());
         CTR_Calculadora.Mminus(Calculadora);
+        CTR_Calculadora.Conversor(Calculadora);
         txbMem.setText(Calculadora.getMemoria());
     }//GEN-LAST:event_TeclaMmenosActionPerformed
 
@@ -609,8 +611,8 @@ public class FRM_Calculadora extends javax.swing.JFrame {
 
     private void TeclaACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaACActionPerformed
         Calculadora.ac();
-        txbCalc.setText(Calculadora.getStr_num());
-        txbMem.setText(Calculadora.getMemoria());
+        txbCalc.setText("");
+        txbMem.setText("");
     }//GEN-LAST:event_TeclaACActionPerformed
 
     private void TeclaTanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaTanActionPerformed
