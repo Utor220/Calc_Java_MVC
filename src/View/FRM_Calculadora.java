@@ -13,13 +13,13 @@ import Controller.CTR_Calculadora;
 public class FRM_Calculadora extends javax.swing.JFrame {
         CTR_Calculadora CTR_Calculadora;
         Calculadora Calculadora;
-        //MessageBox Msgbx;
+        MessageBox Msgbx;
     public FRM_Calculadora() {
         initComponents();
         Calculadora = new Calculadora();
         CTR_Calculadora = new CTR_Calculadora();
         Calculadora.setMemoria("0");
-        //Msgbx = new MessageBox(); //MessageBox para teste;
+        Msgbx = new MessageBox(); //MessageBox para exibir os erros;
         
         //Caixa de texto de descrição de alguns botões mais complexos;
         TeclaLog.setToolTipText("Calcula o Log10 de um número. Digite um número e selecione este botão para calculá-lo.");
@@ -626,10 +626,14 @@ public class FRM_Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_TeclaTanActionPerformed
 
     private void TeclaLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaLogActionPerformed
-        Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
-        CTR_Calculadora.log(Calculadora);
-        txbCalc.setText(Calculadora.getRespostafinal());
-        Calculadora.setStr_num(txbCalc.getText());
+        if(Double.parseDouble(txbCalc.getText()) <= 0)
+            Msgbx.infoBox("Não é possível calcular o log de zero ou um número negativo.","Log de zero ou negativo");   
+        else{
+            Calculadora.setN1(Double.parseDouble(txbCalc.getText()));
+            CTR_Calculadora.log(Calculadora);
+            txbCalc.setText(Calculadora.getRespostafinal());
+            Calculadora.setStr_num(txbCalc.getText());
+        }
     }//GEN-LAST:event_TeclaLogActionPerformed
 
     private void TeclaEXPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeclaEXPActionPerformed
