@@ -42,15 +42,22 @@ public class CTR_Calculadora {
     }
 
     public void cos (Calculadora Calculadora){
-        //Calculadora.setRespostafinal(df.format(Math.cos(Calculadora.getN1()));
+        if (Calculadora.getVerificacaoTrigonometrico().equals("Graus")){
+        Calculadora.setRespostafinal(df.format(Math.cos(Calculadora.getN1())));
+        }
+        else{
         Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
         Calculadora.setRespostafinal(df.format(Math.cos(Calculadora.getResultado())));
+        }
     }
-
     public void tan (Calculadora Calculadora){
-        //Calculadora.setRespostafinal(df.format(Math.tan(Calculadora.getN1()));
+        if (Calculadora.getVerificacaoTrigonometrico().equals("Graus")){
+        Calculadora.setRespostafinal(df.format(Math.tan(Calculadora.getN1())));
+        }
+        else{
         Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
         Calculadora.setRespostafinal(df.format(Math.tan(Calculadora.getResultado())));
+        }
     }
 
     public Double PI (){
