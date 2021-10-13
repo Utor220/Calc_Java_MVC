@@ -7,9 +7,10 @@ public class Calculadora {
     private Double n1con;
     private Double n2con;
     private String memoria;
-    private String respostafinal;
+    private String respostaFinal;
     private String operador;
     private String str_num;
+    private String verificacaoTrigonometrico;
 
 
     public Double getN1() {
@@ -29,7 +30,7 @@ public class Calculadora {
     }
 
     public String getRespostafinal() {
-        return respostafinal;
+        return respostaFinal;
     }
 
     public String getOperador() {
@@ -46,6 +47,10 @@ public class Calculadora {
 
     public Double getN2con() {
         return n2con;
+    }
+
+    public String getVerificacaoTrigonometrico() {
+        return verificacaoTrigonometrico;
     }
     
     public void setN1(Double n1) {
@@ -64,8 +69,8 @@ public class Calculadora {
         this.memoria = memoria;
     }
 
-    public void setRespostafinal(String respostafinal) {
-        this.respostafinal = respostafinal;
+    public void setRespostafinal(String respostaFinal) {
+        this.respostaFinal = respostaFinal;
     } 
 
     public void setOperador(String operador) {
@@ -82,6 +87,10 @@ public class Calculadora {
 
     public void setN2con(Double n2con) {
         this.n2con = n2con;
+    }
+
+    public void setVerificacaoTrigonometrico(String verificacaoTrigonometrico) {
+        this.verificacaoTrigonometrico = verificacaoTrigonometrico;
     }
     
     public void ac (){

@@ -32,9 +32,13 @@ public class CTR_Calculadora {
      }
 
     public void sin (Calculadora Calculadora){
-        //Calculadora.setRespostafinal(df.format(Math.sin(Calculadora.getN1()));
+        if (Calculadora.getVerificacaoTrigonometrico().equals("Graus")){
+        Calculadora.setRespostafinal(df.format(Math.sin(Calculadora.getN1())));
+        }
+        else{
         Calculadora.setResultado(Math.toRadians(Calculadora.getN1())); //conversão para radianos;
         Calculadora.setRespostafinal(df.format(Math.sin(Calculadora.getResultado())));
+        }
     }
 
     public void cos (Calculadora Calculadora){
